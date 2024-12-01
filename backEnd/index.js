@@ -6,8 +6,12 @@ const Address = require('./model/address.model')
 const Cart = require('./model/cart.model')
 const Wishlist = require('./model/wishlist.model')
 
-
-app.use(cors());
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 
 const app = express()
 
