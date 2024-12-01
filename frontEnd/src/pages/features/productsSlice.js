@@ -3,40 +3,40 @@ import axios from 'axios'
 
 // Get All the products
 export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
-    const response = await axios.get("http://localhost:3000/products")
+    const response = await axios.get("https://wander-gear-backend.vercel.app/products")
     return response.data
 })
 
 // Get Product by id
 export const fetchProductById = createAsyncThunk("product/fetchProductById", async (productId) => {
-    const response = await axios.get(`http://localhost:3000/products/${productId}`) 
+    const response = await axios.get(`https://wander-gear-backend.vercel.app/products/${productId}`) 
     return response.data
 })
 
 // Update product by id 
 export const updateProductById = createAsyncThunk("product/updateProductById", async ({productId, updatedData}) => {
-    const response = await axios.put(`http://localhost:3000/products/update/${productId}`, updatedData)
+    const response = await axios.put(`https://wander-gear-backend.vercel.app/products/update/${productId}`, updatedData)
     return response.data
 })
 
 // Add address 
 
 export const addAddressOfUser = createAsyncThunk('address/addAddressOfUser', async (newAddress) => {
-    const response = await axios.post("http://localhost:3000/addNewAddress", newAddress)
+    const response = await axios.post("https://wander-gear-backend.vercel.app/addNewAddress", newAddress)
     return response.data
 })
 
 // Get all the address
 
 export const getAllAddress = createAsyncThunk('address/getAllAddress', async () => {
-    const response = await axios.get("http://localhost:3000/getAllAddresses")
+    const response = await axios.get("https://wander-gear-backend.vercel.app/getAllAddresses")
     return response.data
 })
 
 // delete the address
 
 export const deleteAddress = createAsyncThunk('address/deleteAddress', async (addressId) => {
-    const response = await axios.delete("http://localhost:3000/delete/"+addressId)
+    const response = await axios.delete("https://wander-gear-backend.vercel.app/delete/"+addressId)
     return response.data
 })
 
@@ -44,7 +44,7 @@ export const deleteAddress = createAsyncThunk('address/deleteAddress', async (ad
 
 export const updateUserAddress = createAsyncThunk('address/updateAddress', async ({addressId, updatedData}) => {
     console.log("Address id ", addressId, "updatedData", updatedData)
-    const response = await axios.put(`http://localhost:3000/address/update/${addressId}`,updatedData)
+    const response = await axios.put(`https://wander-gear-backend.vercel.app/address/update/${addressId}`,updatedData)
     return response.data
 })
 
@@ -62,11 +62,11 @@ export const productsSlice = createSlice({
             phoneNo : "+91 9540983820",
             addresses : [{
                 _id : Date.now(),
-                addresslineOne : 'Friends Colony',
-                addresslineTwo : 'Near Old Faridabad Chock',
-                city : 'Faridabad',
-                state : 'Haryana',
-                zip : '121002'
+                addresslineOne : 'House No 007',
+                addresslineTwo : 'ABC Colony',
+                city : 'XYZ City',
+                state : 'DEF State',
+                zip : '000007'
             }]
         },
         sortBy : "All",
