@@ -138,7 +138,7 @@ const ProductListing = () => {
             <div className="row">
             {status === 'loading' && <p>Loading...</p>}
             {error && <p>An error occured while fetching the products.</p>}
-            {products && products.length ? (
+            { status === 'success' && products && products.length ? (
               products.map( pro => (                
                   <div key={pro._id} className="col-md-3 py-2">
                     <div  className="card">
