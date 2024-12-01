@@ -7,7 +7,7 @@ import ProDescriptionText from './components/ProDescriptionText'
 
 export default function App() {
   
-  const {data, loading, error} = useFetch("http://localhost:3000/categories")
+  const {data, loading, error} = useFetch("https://wander-gear-backend.vercel.app/categories")
   
   return (
     <>
