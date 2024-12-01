@@ -313,7 +313,7 @@ app.put("/address/update/:addressId", async (req, res) => {
 })
 
 
-const PORT = 3000
+const PORT = process.env.PORT
 
 app.listen(PORT, () => {
   console.log(`Server is running at PORT : ${PORT}`)
