@@ -136,7 +136,7 @@ const ProductListing = () => {
             }
             </div>
             <div className="row">
-            {status === 'loading' && <p>Loading...</p>}
+            {status === 'loading' && (!products || products.length === 0) && <p>Loading...</p>}
             {error && <p>An error occured while fetching the products.</p>}
             {products && products.length ? (
               products.map( pro => (                
