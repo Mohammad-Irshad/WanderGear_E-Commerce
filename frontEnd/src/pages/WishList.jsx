@@ -36,12 +36,19 @@ const WishList = () => {
         
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setShowAddtoCartAlert(false)
+            setShowRemoveAlert(false)
+        },3000)
+    },[showAddToCartAlert, showRemoveAlert])
+
     return (
         <div>
         <Header/>
         <main className='container'>
             <h1 className='text-center py-3 '>My Wishlist</h1>
-            {products.length > 0 ?  
+            {products.length != 0 ?  
             <div className='row'>
             {products.map((pro) => (
                 pro.wishList ? 

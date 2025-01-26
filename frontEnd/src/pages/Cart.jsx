@@ -81,10 +81,9 @@ const Cart = () => {
   }
 
   useEffect(() => {
-    console.log("Use effect 2 called ")
     setPrice(cart.reduce((acc, curr) => acc += (curr.price * curr.qty), 0))
     setDiscount(cart.reduce((acc, curr) => acc += (((curr.price * curr.qty) * curr.discount) / 100), 0))
-    setTotalAmount(cart.reduce((acc, curr) => acc += ((curr.price * curr.qty) - (((curr.price * curr.qty) * curr.discount) / 100)), 0))
+    setTotalAmount(cart.reduce((acc, curr) => acc += ((curr.price * curr.qty) - (((curr.price * curr.qty) * curr.discount) / 100)), deliveryCharge))
   }, [cart])
 
   
@@ -133,6 +132,15 @@ const Cart = () => {
     setUpdateAddress({})
     setEditAddress(false)
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowAddToCartAlert(false)
+      setShowRemoveFromCartAlert(false)
+      setShowMoveToWishlistAlert(false)
+    },2000)
+  },[showAddToCartAlert, showRemoveFromCartAlert, showMoveToWishlistAlert])
+
 
 
   return (
@@ -293,19 +301,21 @@ const Cart = () => {
                           </div>
                         ))
                       }
-                    </div>
-                    
+                    </div>                    
                     <br/>
                     <button className='btn btn-primary'>
                       <Link to='/orderSummary' 
-                      state={{userAddress : deliveryAddress, cart, price, discount, deliveryCharge, totalAmount}} 
+                      state={{userAddress : deliveryAddress, 
+                        cart, price, discount, 
+                        deliveryCharge, totalAmount,                      
+                      }} 
                       className='text-decoration-none text-white'>
                         Checkout
                       </Link>                      
                     </button>
                   </div>
                 </div>
-              : <p>You cart is empty add some items to see cart order details.</p>
+              : <p>Your cart is empty add some items to see cart order details.</p>
               }
             </div>            
             }

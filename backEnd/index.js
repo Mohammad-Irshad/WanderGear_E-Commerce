@@ -23,18 +23,6 @@ initializeDatabase()
 
 // Function to post data in backend
 
-// Post categories data
-
-// const data = [
-//   {categoryName : "Travel Bags and Luggage", categoryDescription : "Discover essential travel accessories designed to make your journey comfortable, convenient, and stylish.", categoryImageUrl : "https://images.unsplash.com/photo-1639598003276-8a70fcaaad6c?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-
-//   {categoryName : "Travel Accessories", categoryDescription : "Enhance your adventures with premium quality travel accessories for every traveler.", categoryImageUrl : "https://cdn.pixabay.com/photo/2017/10/23/05/56/summer-2880261_640.jpg"},
-
-//   {categoryName : "Electronics and Gadgets", categoryDescription : "Stay connected and powered up with electronics and gadgets designed for seamless travel.", categoryImageUrl : "https://cdn.pixabay.com/photo/2020/08/26/14/29/technology-5519649_640.jpg"},
-
-//   {categoryName : "Outdoor and Adventure Gear", categoryDescription : "Gear up with outdoor gear built to withstand the elements and enhance your experience.", categoryImageUrl : "https://images.unsplash.com/photo-1625013964767-0e4b3c041607?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtcGluZyUyMGdlYXJ8ZW58MHx8MHx8fDA%3D"}  
-// ]
-
 const newCategory = {categoryName : "Outdoor and Adventure Gear", categoryDescription : "Gear up with outdoor gear built to withstand the elements and enhance your experience.", categoryImageUrl : "https://images.unsplash.com/photo-1625013964767-0e4b3c041607?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtcGluZyUyMGdlYXJ8ZW58MHx8MHx8fDA%3D"}
 
 async function addCategories(newCategory){
@@ -73,6 +61,10 @@ async function addProduct(newProduct){
   }
 }
 
+// addProduct(newProduct)
+
+
+// Welcome API
 
 app.get('/', async (req, res) => {
     try{
@@ -82,7 +74,6 @@ app.get('/', async (req, res) => {
     }
 })
 
-// addProduct(newProduct)
 
 // 1. Functionality: This API call gets all products from the db.
 

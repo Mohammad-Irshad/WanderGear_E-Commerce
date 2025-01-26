@@ -27,6 +27,9 @@ const ProductListing = () => {
     dispatch(updateProductById({productId : pro._id, updatedData}))
     setShowAddCartAlert(false)
     setShowAddWishlistAlert(true)
+    setTimeout(() => {
+      setShowAddWishlistAlert(false)
+    },2000)
   }
 
   const handleAddtoCart = (pro) => {
@@ -38,6 +41,9 @@ const ProductListing = () => {
     }   
     setShowAddWishlistAlert(false)
     setShowAddCartAlert(true)
+    setTimeout(() => {
+      setShowAddCartAlert(false)
+    },2000)
   }
 
   useEffect(() => {
@@ -95,13 +101,14 @@ const ProductListing = () => {
               <div className="col">
                 <h4 className="mt-2 mb-4"> <u>Filters:</u> </h4>
                 
-                <label htmlFor="rating"> <strong>Rating:</strong></label>
+                <label htmlFor="rating" className="form-label"> <strong>Rating:</strong></label>
                 <span className="px-4">{rating}</span>
                 <br/>
                 <input type="range" id="rating" name="itemRating" min="1" max="5" step=".1" value={rating} onChange={e => setRating(parseFloat(e.target.value))} />
                 <br/>
                 <span>1 To {rating}</span>
                 <br/><br/>
+                <label className="form-label"> <strong>Category:</strong></label>
                 <label> <input type="checkbox" value="Travel Bags and Luggage" name="productCategory" onChange={handleCheckboxChange} checked={isCategoryChecked("Travel Bags and Luggage")} /> Travel Bags and Luggage  </label>
                 <br/>
                 <label> <input type="checkbox" value="Travel Accessories" onChange={handleCheckboxChange} checked={isCategoryChecked("Travel Accessories")} /> Travel Accessories  </label>
@@ -111,6 +118,7 @@ const ProductListing = () => {
                 <label> <input type="checkbox" value="Outdoor and Adventure Gear" onChange={handleCheckboxChange} checked={isCategoryChecked("Outdoor and Adventure Gear")}/> Outdoor and Adventure Gear  </label>            
                 <br/>
                 <br/>
+                <label className="form-label"> <strong>Price:</strong></label><br/>
                 <label> <input type="radio" value="Low to High" name="sortByPrice" onClick={(e) => sortByPrice(e)} checked={sortBy === "Low to High"}/> Low to High </label><br/>
                 <label> <input type="radio" value="High to Low" name="sortByPrice" onClick={(e) => sortByPrice(e)} checked={sortBy === "High to Low"} /> High to Low </label>
 
@@ -147,7 +155,6 @@ const ProductListing = () => {
                       </Link>
                       <div className="card-body">
                         <h5 className="card-title">{pro.name}</h5>
-                        <ProDescriptionText text={pro.productDescription} maxLength={70} />
                         <p>Ratings: {pro.rating}</p>
                         <div className="d-flex justify-content-between">                          
                           <p>Price: Rs. { pro.price - ((pro.price) * (pro.discount == 0 ? 1 : pro.discount) /100)} </p> 

@@ -60,9 +60,9 @@ const ProductDetails = () => {
                             <p className="card-text"> <span>Discounted Price: Rs.{oneProduct.price - (oneProduct.price * oneProduct.discount /100)}</span></p>
                             <p className="card-text"><small className="text-body-secondary">Rating: {oneProduct.rating}</small></p>
                             <br/>
-                            <div className="d-flex justify-content-between">
-                                <button className='btn btn-success mx-4' onClick={() => handleAddtoCart(oneProduct)}>Add to Cart</button>
-                                <button className='btn btn-warning mx-4' onClick={() => handleAddToWishList(oneProduct)}>Add to Wishlist</button>
+                            <div className="d-flex justify-content-start">
+                                <button className='btn btn-success me-3' onClick={() => handleAddtoCart(oneProduct)}>Add to Cart</button>
+                                <button className='btn btn-warning' onClick={() => handleAddToWishList(oneProduct)}>Add to Wishlist</button>
                             </div>                            
                         </div>                        
                     </div>                    

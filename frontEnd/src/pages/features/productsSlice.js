@@ -96,7 +96,7 @@ export const productsSlice = createSlice({
             const index = state.cart.findIndex((pro) => pro._id === action.payload._id)  
             if(index >= 0){
                 state.cart[index].qty += 1  
-            }   
+            }    
         },
         removeOneFromCart : (state, action) => {
             state.cart = state.cart.filter((item) => {
@@ -132,6 +132,9 @@ export const productsSlice = createSlice({
                 )
             }
             
+        },
+        makeCartEmpty : (state) => {
+            state.cart = []
         }
 
     },
@@ -176,7 +179,6 @@ export const productsSlice = createSlice({
         })
         .addCase(updateProductById.fulfilled, (state, action) => {
             state.status = 'success'
-            console.log(action.payload.updatedProduct)
             const index = state.products.findIndex((pro) => pro._id === action.payload.updatedProduct._id)
             state.products[index] = action.payload.updatedProduct
         })
@@ -232,6 +234,6 @@ export const productsSlice = createSlice({
     }
 })
 
-export const {setSortBy, addToWishList, removeFromWishList, addToCart, removeFromCart, addToAddress, removeFromAddresses, updateTheAddress, removeOneFromCart, setSearchProducts} = productsSlice.actions
+export const {makeCartEmpty, setSortBy, addToWishList, removeFromWishList, addToCart, removeFromCart, addToAddress, removeFromAddresses, updateTheAddress, removeOneFromCart, setSearchProducts} = productsSlice.actions
 
 export default productsSlice.reducer

@@ -12,7 +12,7 @@ const UserProfile = () => {
         <section className='py-4'>
             <div className='card'>
                 <div className='card-header'>
-                    <h3>User Detalis</h3>
+                    <h3>User Details</h3>
                 </div>
                 <div className='card-body'>
                     <p> <strong>Name: </strong> {userProfile.name}</p>
