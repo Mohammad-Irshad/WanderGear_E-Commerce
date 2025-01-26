@@ -40,8 +40,8 @@ export default function App() {
                     <div className="card">
                       <img src={category.categoryImageUrl} className="card-img-top" alt="..." />
                       <div className="card-body">
-                        <h5 className="card-title">{category.categoryName}</h5>                        
-                        <ProDescriptionText text={category.categoryDescription} maxLength={80} />
+                        <h5 className="card-title">{category.categoryName}</h5>  
+                        <p>{category.categoryDescription}</p>                      
                         <Link to={`/productListing/${category.categoryName}`} className="btn btn-primary">View Products</Link>
                       </div>
                     </div>
